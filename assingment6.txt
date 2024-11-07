@@ -1,0 +1,50 @@
+Assignment 6
+code .
+mongosh 
+show dbs
+use newd
+db.employees.find()
+db.employees.deleteMany({})
+db.employees.find({$or: [{age: {$gt: 30}}, {experience: {$gt: 5}}]});
+db.createCollection("products")
+db.products.insertMany([{product_name: "Notebook", stock: 20, price: 15}, {product_name: "Pen", stock: 50, price: 2}, {product_name: "Backpack", stock: 10, price: 45}, {product_name: "Calculator", stock: 5, price: 60}, {product_name: "Eraser", stock: 30, price: 1}, {product_name: "Marker", stock:
+15, price: 10}]);
+db.products.find({stock: {$gt: 0}, price: { $lt: 50}})
+db.students.find()
+use datadb
+db.students.find()
+db.students.find({ $or: [{enrolled: false} , [{grade: {$lt:"C"}}]})
+use newd
+db.courses.find()
+db.courses.updateOne({course_name: "ADI"}, {$set: {duration: 5}})
+db.courses.find({ $or: [{ duration: { $lt: 6 } }, { instructor: { $exists: false } }] });
+db.orders.find()
+newd> show collections
+newd> use datadb
+switched to db datadb
+datadb> show collections
+employees
+library
+orders
+students
+db.orders.find({$or: [{status: {$ne: "shipped"}}, {shipped_date: {$exists: false}}]})
+db.employees.find()
+db.employees.find({department: {$ne: "Engineering"}}, {name:1, department:1, _id:0})
+newd> use datadb
+switched to db datadb
+datadb> db.students.find()
+db.students.find({exam_score: {$lt: 50}, participation: {$ne:true}})
+datadb> use newd
+switched to db newd
+newd> db.employees.find()
+ db.employees.find({ department: "Sales", $or: [{ experience: { $gt: 3 } }, { age: { $lt: 25 } }] });
+ newd> show collections
+courses
+employees
+inventory
+products
+newd> db.inventory.find()
+ db.inventory.find({$or: [{price: {$lt: 100}}, {stock: {$exists: false}}]})
+ db.courses.find()
+  db.courses.find({$or: [{instructor :{$ne: "Bharat Sir"}},{duration: {$lt:10}}]})
+  db.courses.find({instructor: {$ne: "Bharat Sir"}, duration: {$lte: 10}})
