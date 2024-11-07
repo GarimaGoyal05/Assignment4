@@ -22,3 +22,87 @@ db.students.deleteOne({name: "Aria"})
 db.students.countDocuments({grade: "A+"})
 db.students.find( {} , {name: 1, grade: 1, _id:0})
 db.students.find().sort({age: -1})
+db.students.find({ grade: { $ne: "A" } },{ name: 1, grade: 1, _id: 0 })
+db.students.find({ age: { $lt: 18 } },{ name: 1, age: 1, class: 1, _id: 0 })
+db.employees.insertMany([{ employee_id: 1, name: "Rehan", department: "HR", experience: 12 },{ employee_id: 2, name: "Garima", department: "Engineering", experience: 15 },{ employee_id: 3, name: "Sara", department: "Marketing", experience: 8 },{ employee_id: 4, name: "Sameer", department: "Engineering", experience: 11 },{ employee_id: 5, name: "Sarina", department: "Sales", experience: 9 }])
+db.employees.find({ experience: { $gt: 10 } },{ name: 1, department: 1, _id: 0 } )
+db.courses.insertMany([
+  { course_name: "BEE", instructor: "Sarika Mam", duration: 14 },
+  { course_name: "AI-ML", instructor: "Shubham Sir", duration: 10 },
+  { course_name: "OOSE", instructor: "Sarabjit Kaur Mam", duration: 16 },
+  { course_name: "ADI", instructor: "Mohit Sir", duration: 9 },
+  { course_name: "C++", instructor: "Bharat Sir", duration: 12 }
+])
+db.createCollection()
+ { item_name: "Laptop", price: 1500, stock: 10 },{ item_name: "Keyboard", price: 50, stock: 50 },{ item_name: "Mouse", price: 25, stock: 100 },{ item_name: "Monitor", price: 200, stock: 15 },{ item_name: "USB Cable", price: 10, stock: 200 }
+
+
+insertMany([{ title: "Book A", author: "Author 1", pages: 120 },{ title: "Book B", author: "Author 2", pages: 200 },{ title: "Book C", author: "Author 3", pages: 450 },{ title: "Book D", author: "Author 4", pages: 700 },{ title: "Book E", author: "Author 5", pages: 300 }])
+
+
+db.employees.find({department: { $ne: "HR" },salary: { $gt: 60000 }},{ name: 1,salary: 1,})
+db.orders.insertMany([{ order_id: 1, status: "completed", total_amount: 250 },{ order_id: 2, status: "in progress", total_amount: 100 },{ order_id: 3, status: "completed", total_amount: 500 },{ order_id: 4, status: "shipped", total_amount: 200 },{ order_id: 5, status: "in progress", total_amount: 150 }])
+
+
+db.students.find({roll: { $gte: 500 },department: { $in: ["Biology", "Chemistry", "Physics"] }},{ name: 1, roll: 1, department: 1, _id: 0 } )
+
+
+
+
+
+
+
+
+
+
+
+Assignment 5
+mongosh
+show dbs
+use newd
+use datadb
+db.students.find()
+db.students.insertOne({ name: "Maria", age: 26, grade: "B+" })
+db.students.find({ grade: { $ne: "A" } }, { name: 1, grade: 1, _id: 0 } )
+db.students.find({ age: { $lt: 18 } },{ name: 1, age: 1, class: 1, _id: 0 })
+db.employees.insertMany([{ employee_id: 1, name: "Rehan", department: "HR", experience: 12 },{ employee_id: 2, namnewd> db.employees.insertMany([{ employee_id: 1, name: "Rehan", department: "HR", experience: 12 },{ employee_id: 2, name: "Garima", department: "Engineering", experience: 15 },{ employee_id: 3, name: "Sara", department: "Marketing", experience: 8 },{ employee_id: 4, name: "Sameer", department: "Engineering", experience: 11 },{ employee_id: 5, name: "Sarina", department: "Sales", experience: 9 }])
+db.employees.find({ experience: { $gt: 10 } },{ name: 1, department: 1, _id: 0 } )
+ db.courses.insertMany([
+...   { course_name: "BEE", instructor: "Sarika Mam", duration: 14 },
+...   { course_name: "AI-ML", instructor: "Shubham Sir", duration: 10 },
+...   { course_name: "OOSE", instructor: "Sarabjit Kaur Mam", duration: 16 },
+...   { course_name: "ADI", instructor: "Mohit Sir", duration: 9 },
+...   { course_name: "C++", instructor: "Bharat Sir", duration: 12 }
+... ])
+db.courses.find()
+db.courses.find({ duration: { $gte: 12 } },  { course_name: 1, instructor: 1, _id: 0 } )
+db.courses.find({duration: {$gte:12}}, {course_name:1 , instructor:1, _id:0})
+ db.createCollection("inventory")
+  db.inventory.insertMany([{ item_name: "Laptop", price: 1500, stock: 10 },{ item_name: "Keyboard", price: 50, stock: 50 },{ item_name: "Mouse", price: 25, stock: 100 },{ item_name: "Monitor", price: 200, stock: 15 },{ item_name: "USB Cable", price: 10, stock: 200 }])
+  db.inventory.find( {price: {$lte:100}}, {item_name:1, price:1,_id:0})
+db.students.find({name: {$in: ["Rehan","Sara","Sameer"]}}, {name:1, age:1, _id:0})
+db.createCollection("library")
+db.library.insertMany([{ title: "B1", author: "A1", pages: 120 },{ title: "B2", author: "A2", pages: 200 },{ title: "B3", author: "A3", pages: 450 },{ title: "B4", author: "A4", pages: 700 },{ title: "B5", author: "A5", pages: 300 }])
+db.library.find({pages: {$gte: 150, $lte: 500}}, {title:1, pages:1, _id:0})
+db.employees.deleteMany({})
+{ acknowledged: true, deletedCount: 0 }
+datadb> db.employees.insertMany([
+...   { employee_id: 1, name: "Rehan", department: "HR", experience: 12, salary: 50000 },
+...   { employee_id: 2, name: "Garima", department: "Engineering", experience: 15, salary: 80000 },
+...   { employee_id: 3, name: "Sara", department: "Marketing", experience: 8, salary: 65000 },
+...   { employee_id: 4, name: "Sameer", department: "Engineering", experience: 11, salary: 75000 },
+...   { employee_id: 5, name: "Sarina", department: "Sales", experience: 9, salary: 55000 }
+... ])
+db.employees.find({department: { $ne: "HR" },salary: { $gt: 60000 }},{ name: 1,salary: 1,})
+db.createCollection("orders")
+db.orders.insertMany([{ order_id: 1, status: "completed", total_amount: 250 },{ order_id: 2, status: "in progress", total_amount: 100 },{ order_id: 3, status: "completed", total_amount: 500 },{ order_id: 4, status: "shipped", total_amount: 200 },{ order_id: 5, status: "in progress", total_amount: 150 }])
+db.orders.find({status: {$in: ["completed","in progress"]}}, {order_id:1, status:1,_id:0})
+db.students.find()
+db.students.deleteMany({})
+db.students.insertMany([{ name: 'Rehan', age: 19, grade: 'A+', rollno: 510, department: 'Biology' }, { name: 'Sara', age: 16, grade: 'A+', rollno: 520, department: 'Chemistry' }, { name: 'Sameer', age: 18, grade: 'A', rollno: 530, department: 'Physics' }, { name: 'Garima', age: 19, grade: 'A+', rollno: 540, department: 'Math' }, { name: 'Mona', age: 25, grade: 'A+', rollno: 550, department: 'Biology' }, { name: 'Mihir', age: 28, grade: 'A+', rollno: 560, department: 'Chemistry' }, { name: 'Aria', age: 26, grade: 'A+', rollno: 570, department: 'Physics' }, { name: 'Maria', age: 26, grade: 'B+', rollno: 580, department: 'Biology' }])'
+ db.students.find()
+  db.students.find({roll: { $gte: 500 },department: { $in: ["Biology",
+ "Chemistry", "Physics"] }},{ name: 1, roll: 1, department: 1, _id: 0 } )
+ db.students.find({rollno: { $gte: 500 },department: { $in: ["Biology", "Chemistry", "Physics"] }},{ name: 1, rollno: 1, department: 1, _id: 0 })
+  db.orders.insertMany([{ order_id: 1, status: "completed", total_amount: 250 },{ order_id: 2, status: "in progress", total_amount: 100 },{ order_id: 3, status: "completed", total_amount: 500 },{ order_id: 4, status: "shipped", total_amount: 200 },{ order_id: 5, status: "in progress", total_amount: 150 }])db.students.find({rollno: { $gte: 500 },department: { $in: ["Biology", "Chemistry", "Physics"] }},{ name: 1, rollno: 1, department: 1, _id: 0 }
+db.students.find({ roll: { $gte: 500 }, department: { $in: ["Biology", "Chemistry", "Physics"] }},{ name: 1, roll: 1, department: 1, _id: 0 }))
