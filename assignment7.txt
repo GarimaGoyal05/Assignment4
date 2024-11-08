@@ -1,0 +1,36 @@
+code .
+mongosh
+show dbs
+use datadb
+use newd
+db.products.find()
+db.products.find({ price: { $gt: 20, $lt: 100 }, stock: { $gt: 0 } })
+ use datadb
+ db.students.find()
+db.students.find({ $or: [ { grade: { $gt: 85 } }, { attendance: { $g$gt: 90 } }, { age: { $lt: 18 } } ] })
+use datadb
+already on db datadb
+datadb> db.employees.find()
+db.createCollection("jobs")
+ db.jobs.insertMany([ { title: "Software Engineer", salary: 120000, location: "New York" }, { title: "Data Scientist", salary: 95000, location: "San Francisco" }, { title: "Project Manager", salary: 80000, location: "New York" }, {title: "Social Marketing", salary: 40000, location: "Italy"} ])
+db.jobs.find({ $and: [ { salary: { $gt: 50000 } }, {$or:[ { location: "New York" }, { location : "San Francisco"} ]} ] })
+db.inventory.find()
+db.inventory.updateMany({ category: "electronics", discount: { $gte: 10 }, stock: { $gt: 0 } }, { $set: { promotion: true } })
+db.inventory.find({$and: [{discount: {$gte :10 }}, {stock: {$exists: true}}]})
+db.orders.find()
+db.orders.find({ status: "in progress", $or: [ { customer_type: "VIP" }, { total_amount: { $gt: 500 } } ] })
+db.orders.find()
+db.orders.find({ status: "in progress", $or: [ { customer_type: "regular" }, { total_amount: { $gt: 500 } } ] })
+db.students.find()
+db.students.find({ $or: [ { $and: [ { age: { $gt: 18 } }, { grade: {$lt: 60 } } ] }, { attendance: { $lt: 75 } } ] })
+db.products.find()
+db.products.find({$and: [ { price: { $lt: 200 } }, { stock: { $lt: 5 } } ] })
+db.items.find({ type: { $in: ["software", "service"] }, price: { $lt: 100 } })
+db.items.find({ type: { $in: ["software", "service"] }, price: { $lt: 100 } })
+db.employees.find({ experience: { $gt: 5 }, department: { $in: ["Engineering", "HR"] } })
+newd> use datadb
+switched to db datadb
+datadb> show collections
+db.orders.find({ $or: [ { status: 'in progress', total_amount: { $gt: 100 } }, { priority: 'high' } ] })
+
+//in progress instead of urgent.
